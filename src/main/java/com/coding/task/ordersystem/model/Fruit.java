@@ -2,8 +2,8 @@ package com.coding.task.ordersystem.model;
 
 public class Fruit {
 
-    public String fruitName;
-    public int quantity;
+    private String fruitName;
+    private int quantity;
 
     public Fruit() {
     }

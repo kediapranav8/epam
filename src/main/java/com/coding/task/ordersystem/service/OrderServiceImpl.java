@@ -39,4 +39,15 @@ public class OrderServiceImpl implements OrderService {
         return repository.orderSummary(fruits, totalOrderCost);
 
     }
+
+    @Override
+    public List<FruitSummary> getOrders() {
+
+        return repository.getOrders();
+    }
+
+    @Override
+    public FruitSummary getOrderById(Integer id) {
+        return repository.getOrderById(id);
+    }
 }

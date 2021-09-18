@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface OrderService {
 
-    public FruitSummary saveOrder(List<Fruit> fruit);
-
+    FruitSummary saveOrder(List<Fruit> fruit);
+    List<FruitSummary> getOrders();
+    FruitSummary getOrderById(Integer id);
 
 }

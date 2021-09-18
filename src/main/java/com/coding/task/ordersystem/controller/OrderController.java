@@ -4,10 +4,7 @@ import com.coding.task.ordersystem.model.Fruit;
 import com.coding.task.ordersystem.model.FruitSummary;
 import com.coding.task.ordersystem.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,15 +16,25 @@ public class OrderController {
 
 
     @RequestMapping("/")
-    public String test(){
+    public String test() {
         return "App Work s";
     }
 
     @PostMapping("/order")
-    public FruitSummary order(@RequestBody List<Fruit> fruit){
+    public FruitSummary order(@RequestBody List<Fruit> fruit) {
         //exception handling with logging
-       return orderService.saveOrder(fruit);
+        return orderService.saveOrder(fruit);
 
     }
 
+@GetMapping("/orders/{id}")
+    public FruitSummary getOrderById(@PathVariable Integer id){
+        System.out.println("Id Value "+id);
+        return orderService.getOrderById(id);
+    }
+
+    @GetMapping("/orders")
+    public List<FruitSummary> getOrder() {
+        return orderService.getOrders();
+    }
 }
