@@ -19,14 +19,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public FruitSummary saveOrder(List<Fruit> fruits) {
-        float fruitCost = 0;
+        float fruitCost;
         float totalOrderCost = 0;
         for (Fruit f : fruits) {
             if (f.getFruitName().equalsIgnoreCase("apple")) {
                 fruitCost = appleCost * f.getQuantity();
+                f.setQuantity(f.getQuantity()+f.getQuantity());     // introducing offer on apple buy 1, get 1
             } else if (f.getFruitName().equalsIgnoreCase("orange")) {
                 fruitCost = orangeCost * f.getQuantity();
-            } else {
+                if(f.getQuantity()>1){
+                f.setQuantity(f.getQuantity() + f.getQuantity()/2 + f.getQuantity()%2);  // introducing offer on orange 3 for the price of 2
+            }} else {
                 fruitCost = 0;
             }
             totalOrderCost = fruitCost + totalOrderCost;

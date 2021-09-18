@@ -16,7 +16,7 @@ public class Fruit {
         this.fruitName = fruitName;
     }
 
-    public float getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
